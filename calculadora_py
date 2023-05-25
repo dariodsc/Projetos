@@ -4,10 +4,28 @@
 # função again para criar um laço de repetição
 
 def calculadora():
+    saudacao()
     print("Calculadora Python\n")
     print('Utilize uma das 4 operações matemáticas\n\n(Adição, Subtração, Divisão ou Multiplicação)\n')
-    valor_1 = int(input("Primeiro número: "))
-    valor_2 = int(input("Segundo número: "))
+    
+    # Verificação do primeiro número
+    while True:
+        valor_1 = input("Primeiro número: ")
+        if valor_1.isdigit():
+            valor_1 = int(valor_1)
+            break
+        else:
+            print("Valor inválido. Digite um número inteiro válido.")
+    
+    # Verificação do segundo número
+    while True:
+        valor_2 = input("Segundo número: ")
+        if valor_2.isdigit():
+            valor_2 = int(valor_2)
+            break
+        else:
+            print("Valor inválido. Digite um número inteiro válido.")
+            
     calculo = input('''\nEscolha um operador:\n 
 (1). Adição\n(2). Subtração\n(3). Multiplicação\n(4). Divisão\n\nInforme o operador: ''')
 
@@ -33,9 +51,9 @@ def calculadora():
     # fim da função calculadora
 
 def again():
-    import os   # import para a usar o cls / Limpar a tela
+    import os
     calcular_denovo = input("Quer calcular novamente: [S] Sim ou [N] Não: \n")
-    if calcular_denovo.upper().strip()[0] == "S":
+    if calcular_denovo.upper().strip()[0] == "S" or calcular_denovo.upper() == 'SIM':
         os.system('cls')    # Usado no import
         calculadora()
     elif calcular_denovo.upper().strip()[0] == "N":
@@ -44,6 +62,20 @@ def again():
         print('Valor invalido!')
         again()
     # fim da função again
+    
+def saudacao(): # Função de saudação 
+
+    from datetime import datetime
+
+    hora_primaria = int(datetime.now().strftime("%H"))
+    
+    if hora_primaria < 12:
+        print("\nBom dia!\n")
+    elif hora_primaria >= 12 or hora_primaria < 18:
+        print("\nBoa tarde\n")
+    elif hora_primaria >= 18 or hora_primaria < 24:
+        print("\nBoa noite!\n")
+
 
 calculadora()
 # chama a função calculadora para nova execução
