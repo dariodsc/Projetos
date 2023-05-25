@@ -4,8 +4,9 @@
 # função again para criar um laço de repetição
 
 def calculadora():
-    print("Calculadora Python\n")
-    print('Utilize uma das 4 operações matemáticas\n\n(Adição, Subtração, Divisão ou Multiplicação)\n')
+    saudacao()
+    print("Calculadora em Python\n")
+    print('4 operações matemáticas\n\n(Adição, Subtração, Divisão ou Multiplicação)\n')
     valor_1 = int(input("Primeiro número: "))
     valor_2 = int(input("Segundo número: "))
     calculo = input('''\nEscolha um operador:\n 
@@ -44,6 +45,20 @@ def again():
         print('Valor invalido!')
         again()
     # fim da função again
+    
+def saudacao(): # Função de saudação 
+
+    from datetime import datetime
+
+    hora_primaria = int(datetime.now().strftime("%H"))
+    
+    if hora_primaria < 12:
+        print("\nBom dia!\n")
+    elif hora_primaria >= 12 or hora_primaria < 18:
+        print("\nBoa tarde\n")
+    elif hora_primaria >= 18 or hora_primaria < 24:
+        print("\nBoa noite!\n")
+
 
 calculadora()
 # chama a função calculadora para nova execução
