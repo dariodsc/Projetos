@@ -13,19 +13,19 @@ def calculadora():
 
     # adição
     if calculo == "1":
-        print(f"\nResultado: {valor_1} + {valor_2} = {valor_1 + valor_2}")
+        print(f"\nResultado: {valor_1} + {valor_2} = {valor_1 + valor_2}\n")
     
     # subtração
     elif calculo == "2":
-        print(f"\nResultado: {valor_1} - {valor_2} = {valor_1 - valor_2}")
+        print(f"\nResultado: {valor_1} - {valor_2} = {valor_1 - valor_2}\n")
 
     # multiplicação
     elif calculo == "3":
-        print(f"\nResultado: {valor_1} X {valor_2} = {valor_1 * valor_2}")
+        print(f"\nResultado: {valor_1} X {valor_2} = {valor_1 * valor_2}\n")
     
     # divisão
     elif calculo == "4":
-        print(f"\nResultado: {valor_1} / {valor_2} = {valor_1 // valor_2}")
+        print(f"\nResultado: {valor_1} / {valor_2} = {valor_1 // valor_2}\n")
     else:
         print("Escolha um operador válido")
 
@@ -33,8 +33,10 @@ def calculadora():
     # fim da função calculadora
 
 def again():
+    import os   # import para a usar o cls / Limpar a tela
     calcular_denovo = input("Quer calcular novamente: [S] Sim ou [N] Não: \n")
     if calcular_denovo.upper().strip()[0] == "S":
+        os.system('cls')    # Usado no import
         calculadora()
     elif calcular_denovo.upper().strip()[0] == "N":
         print("Encerrando...")
