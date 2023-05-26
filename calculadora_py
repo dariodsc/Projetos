@@ -2,15 +2,18 @@
 
 # função calculadora para que possa se repetir
 # função again para criar um laço de repetição
+# função saudacao para dar boas vindas dependendo do horário
+
+import os
 
 def calculadora():
     saudacao()
     print("Calculadora Python\n")
-    print('Utilize uma das 4 operações matemáticas\n\n(Adição, Subtração, Divisão ou Multiplicação)\n')
+    print('Utilize uma das 4 operações matemáticas:\n(Adição, Subtração, Divisão ou Multiplicação)\n')
     
     # Verificação do primeiro número
     while True:
-        valor_1 = input("Primeiro número: ")
+        valor_1 = input("Primeiro Valor: ")
         if valor_1.isdigit():
             valor_1 = int(valor_1)
             break
@@ -19,7 +22,7 @@ def calculadora():
     
     # Verificação do segundo número
     while True:
-        valor_2 = input("Segundo número: ")
+        valor_2 = input("Segundo Valor: ")
         if valor_2.isdigit():
             valor_2 = int(valor_2)
             break
@@ -51,15 +54,14 @@ def calculadora():
     # fim da função calculadora
 
 def again():
-    import os
     calcular_denovo = input("Quer calcular novamente: [S] Sim ou [N] Não: \n")
     if calcular_denovo.upper().strip()[0] == "S" or calcular_denovo.upper() == 'SIM':
         os.system('cls')    # Usado no import
         calculadora()
-    elif calcular_denovo.upper().strip()[0] == "N":
-        print("Encerrando...")
+    elif calcular_denovo.upper().strip()[0] == "N" or calcular_denovo.upper() == 'NÃO':
+        print("Fim do programa, TCHAU!...")
     else:
-        print('Valor invalido!')
+        print('Valor invalido, Tente de novo!')
         again()
     # fim da função again
     
@@ -70,12 +72,11 @@ def saudacao(): # Função de saudação
     hora_primaria = int(datetime.now().strftime("%H"))
     
     if hora_primaria < 12:
-        print("\nBom dia!\n")
+        print("\nBOM DIA!\n")
     elif hora_primaria >= 12 or hora_primaria < 18:
-        print("\nBoa tarde\n")
+        print("\nBOA TARDE\n")
     elif hora_primaria >= 18 or hora_primaria < 24:
-        print("\nBoa noite!\n")
-
+        print("\nBOA NOITE!\n")
 
 calculadora()
 # chama a função calculadora para nova execução
