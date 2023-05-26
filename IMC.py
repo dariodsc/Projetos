@@ -4,35 +4,38 @@ print('Calculo IMC')
 
 def calculo_imc():
     os.system('cls')
-    while True:
+    while True: # Variavel altura - Valida os dados que entram
         try:
-            altura = float(input('Informe sua altura: '))
+            altura_str = input('Informe sua altura: ')
+            if '.' in altura_str:  # Verifica se a altura já possui ponto decimal
+                altura = float(altura_str)
+            else:
+                altura = float(altura_str) / 100  # Converte altura em centímetros para metros
             break
         except ValueError:
-            print('Valor inválido. Digite um valor válido.')
-            
+            print('Valor inválido. Tente novamente.')
+              
     while True:
         try:
             peso = float(input('Informe sua peso: '))
             break
         except ValueError:
             print('Valor inválido. Digite um valor válido.')
-    
-    while True:
+
+    while True: # Variavel do sexo - Validando as informações necessárias
         sexo = input('Informe seu sexo: M - Masculino / F - Feminino: ')
         if sexo.upper().strip() in ['M', 'F']:
             break
         else:
             print('Valor inválido!')
 
-    if sexo.upper().strip() == 'M':
+    if sexo.upper().strip() == 'M': # Continuidade da validação anterior
         sexo_certo = 'MASCULINO'
     else:
         sexo_certo = 'FEMININO'
     imc = peso / altura**2
 
-    
-    if imc < 18.5:
+    if imc < 18.5:  # IF da Regra IMC
         os.system('cls')
         print('Pessoa do sexo: {}'.format(sexo_certo))
         print('O IMC é: {:.2f}, está na faixa de MAGREZA'.format(imc))
